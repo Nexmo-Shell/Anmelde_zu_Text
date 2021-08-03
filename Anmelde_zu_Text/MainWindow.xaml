@@ -1,0 +1,24 @@
+﻿<Window x:Class="Anmelde_zu_Text.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Anmelde_zu_Text"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="600">
+    <Grid>
+        <Canvas Name="Hauptfesnter" Width="600" Height="350" HorizontalAlignment="Center" Background="Beige">
+            <TextBox Name="Vorname" Width="150" Height="30" Canvas.Left="85" Canvas.Top="25" Margin="25" HorizontalAlignment="Left"/>
+            <TextBox Name="Nachname" Width="150" Height="30" Canvas.Left="380" Canvas.Top="25" Margin="25" HorizontalAlignment="Left"/>
+            <PasswordBox Name="Password" Width="150" Height="30" Canvas.Left="85" Canvas.Top="70" Margin="25" HorizontalAlignment="Left" />
+            <Label Content="Vorname" Canvas.Left="0" Canvas.Top="25" Margin="25" Foreground="Aqua" Background="Black" FontFamily="Arial Black" FontSize="14"/>
+            <Label Content="Password" Canvas.Left="0" Canvas.Top="70" Margin="25" Foreground="Aqua" Background="Black" FontFamily="Arial Black" FontSize="14" />
+            <TextBox Name="Benutzer" Width="150" Height="30" Canvas.Left="380" Canvas.Top="70" Margin="25" HorizontalAlignment="Left"/>
+            <Label Content="Nachname" Canvas.Left="250" Canvas.Top="25" Margin="25" Foreground="Aqua" Background="Black" FontFamily="Arial Black" FontSize="14"/>
+            <Label Content="Benutzername" Canvas.Left="250" Canvas.Top="70" Margin="25" Foreground="Aqua" Background="Black" FontFamily="Arial Black" FontSize="14"/>
+            <Button Content="Login" Canvas.Left="125" Canvas.Top="125" Margin="25" Foreground="DarkRed" Background="DarkGray" FontFamily="Arial Black" FontSize="18" Click="Login"/>
+            <Button Content="Abbruch" Canvas.Left="225" Canvas.Top="125" Margin="25" FontFamily="Arial Black" FontSize="18" Click="Cancel"/>
+            <Button Content="Beenden" Canvas.Left="355" Canvas.Top="125" Margin="25" FontFamily="Arial Black" FontSize="18" Background="DarkGray" Foreground="DarkRed" Click="Quit"/>
+        </Canvas>
+    </Grid>
+</Window>

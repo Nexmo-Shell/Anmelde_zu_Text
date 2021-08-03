@@ -1,0 +1,14 @@
+﻿<Window x:Class="Anmelde_zu_Text.Login_erfolgreich"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Anmelde_zu_Text"
+        mc:Ignorable="d"
+        Title="Login_erfolgreich" Height="150" Width="800">
+    <Grid Background="Black" Height="150" Width="800">
+        <Canvas>
+            <Label Content="Herzlichenn Glückwunsch, der Login war erfolgreich!!" Canvas.Top="45" Canvas.Left="45" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="24" Foreground="Red" Background="Black" />
+        </Canvas>
+    </Grid>
+</Window>
