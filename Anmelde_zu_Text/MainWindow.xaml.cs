@@ -26,86 +26,35 @@ namespace Anmelde_zu_Text
             InitializeComponent();
         }
 
-        private List<Login_Speicher> Login_Data = new List<Login_Speicher>();
-        private List<string> called_Data = new List<string>();
-        private List<string> pass_Data = new List<string>();
-        List<string> Textdateien = new List<string>();
-        bool abfrage;
-        bool passwort_check = false;
-
-        public void InitLogindata()
-        {
-
-            Login_Speicher myLogin = new Login_Speicher();
-            myLogin.Vorname = Vorname.Text;
-            myLogin.Nachname = Nachname.Text;
-            myLogin.Benutzername = Benutzer.Text;
-            myLogin.Passwort = Password.Password;
-
-            Login_Data.Add(myLogin);
-        }
-
-        public void Writer()
-        {
-            foreach (Login_Speicher log in Login_Data)
-            {
-                log.Write_Data();
-            }
-        }
-
-        public void ControllData()
-        {
-            OrdnerAbfrage();
-            OrdnerAuslesen();
-            Datenabgleich();
-
-        }
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            InitLogindata();
-            ControllData();
+            Controlling_Data.ControllData();
+            Datenabgleich();
         }
 
-        public void OrdnerAbfrage()
-        {
-            DirectoryInfo info = new DirectoryInfo(@"D:\Umschulung_Fachinformatiker\Praktikum\Textdata");
-            foreach (var fi in info.GetFiles("*.txt"))
-            {
-                Textdateien.Add(fi.Name);
-            }
-        }
 
-        public void OrdnerAuslesen()
-        {   
-            foreach (var file in Textdateien)
-            {   
-                string[] datei = File.ReadAllLines(@"D:\Umschulung_Fachinformatiker\Praktikum\Textdata\" + file);
-                string userdata = datei[2];
-                called_Data.Add(userdata);
-                string pass = datei[2] +"_"+ StringExtension.Reverse(datei[3]);
-                pass_Data.Add(pass);
-            }
-        }
 
         public void Datenabgleich()
         {
-            foreach (var datei in called_Data)
+            foreach (var datei in Controlling_Data.called_Data)
             {
                 if (Benutzer.Text == datei)
                 {
-                    abfrage = true;
+                    Controlling_Data.abfrage = true;
                 }
 
             }
-            if (abfrage == true)
+            if (Controlling_Data.abfrage == true)
             {
                 MessageBoxResult result1 = MessageBox.Show("Benutzer ist bereits vorhanden. Möchten Sie sich einlogen?", "Achtung!!", MessageBoxButton.YesNo, MessageBoxImage.Information);
                 switch (result1)
                 {
-                    case MessageBoxResult.Yes: Vergleich_daten();
+                    case MessageBoxResult.Yes:
+                        Vergleich_daten();
                         break;
-                    case MessageBoxResult.No: MessageBox.Show("Bitte nehmen Sie einen anderen Benutzername");Login_Data.Clear();Benutzer.Clear();called_Data.Clear(); pass_Data.Clear(); abfrage = false;
+                    case MessageBoxResult.No:
+                        MessageBox.Show("Bitte Registrieren Sie sich"); Benutzer.Clear(); Controlling_Data.called_Data.Clear(); Controlling_Data.pass_Data.Clear(); Controlling_Data.abfrage = false;
                         break;
                 }
             }
@@ -115,9 +64,7 @@ namespace Anmelde_zu_Text
 
                 switch (result)
                 {
-                    case MessageBoxResult.Yes:
-                        Writer(); MessageBox.Show("Neuer Nutzer wurde angelegt"); Window win = new Login_erfolgreich();
-                        win.Show(); Login_Data.Clear(); Benutzer.Clear(); Vorname.Clear(); Nachname.Clear(); Password.Clear();
+                    case MessageBoxResult.Yes: Window win = new Registrierung();win.Show();
                         break;
                     case MessageBoxResult.No:
                         MessageBox.Show("Es wurde kein neuer Nutzer angelegt");
@@ -128,22 +75,23 @@ namespace Anmelde_zu_Text
 
         }
         public void Vergleich_daten()
-        { int i = 0;
+        {
+            int i = 0;
             do
             {
-                foreach (var s in pass_Data)
+                foreach (var s in Controlling_Data.pass_Data)
                 {
                     string[] subs = s.Split('_');
                     string B_Name = subs[0];
                     string Pass_data = subs[1];
                     if (B_Name == Benutzer.Text && Pass_data == Password.Password)
                     {
-                        passwort_check = true;
+                        Controlling_Data.passwort_check = true;
                     }
                     i++;
                 }
-            } while (i != pass_Data.Count);
-            if(passwort_check == true)
+            } while (i != Controlling_Data.pass_Data.Count);
+            if (Controlling_Data.passwort_check == true)
             {
                 Window win = new Login_erfolgreich();
                 win.Show();
@@ -155,13 +103,20 @@ namespace Anmelde_zu_Text
         {
             Benutzer.Clear();
             Password.Clear();
-            Vorname.Clear();
-            Nachname.Clear();
+            
         }
 
         private void Quit(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        
+
+        private void Registrieren_Click(object sender, RoutedEventArgs e)
+        {
+            Window win = new Registrierung();
+            win.Show();
         }
     }
 }
