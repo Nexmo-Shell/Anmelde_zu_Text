@@ -19,7 +19,7 @@ namespace Anmelde_zu_Text
         public void Write_Data()
         {     
             string p = Passwort;
-            p = StringExtension.Reverse(p);
+            p = Cryptor.Encryptor(p);
             string[] write = { Vorname, Nachname, Benutzername, p };
             string pathing = path + Vorname+"_"+Nachname + ".txt";
 
