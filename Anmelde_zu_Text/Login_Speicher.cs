@@ -12,20 +12,20 @@ namespace Anmelde_zu_Text
         public string Nachname { get; set; }
         public string Benutzername { get; set; }
         public string Passwort { get; set; }
-        
+
 
         string path = @"D:\Umschulung_Fachinformatiker\Praktikum\Textdata\";
 
         public void Write_Data()
-        {     
+        {
             string p = Passwort;
             p = StringExtension.Reverse(p);
             string[] write = { Vorname, Nachname, Benutzername, p };
-            string pathing = path + Vorname+"_"+Nachname + ".txt";
+            string pathing = path + Vorname + "_" + Nachname + ".txt";
 
             File.WriteAllLines(pathing, write);
         }
 
-       
+
     }
 }
