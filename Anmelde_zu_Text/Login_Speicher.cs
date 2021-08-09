@@ -18,9 +18,8 @@ namespace Anmelde_zu_Text
 
         public void Write_Data()
         {     
-            string p = Passwort;
-            p = Cryptor.Encryptor(p);
-            string[] write = { Vorname, Nachname, Benutzername, p };
+            int i = CrypToFile.Encrypt(Passwort);
+            string[] write = { Vorname, Nachname, Benutzername, i.ToString() };
             string pathing = path + Vorname+"_"+Nachname + ".txt";
 
             File.WriteAllLines(pathing, write);

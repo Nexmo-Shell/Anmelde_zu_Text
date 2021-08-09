@@ -7,18 +7,18 @@ using System.Windows;
 
 namespace Anmelde_zu_Text
 {
-    public class Cryptor
+    public static class Cryptor
     {
-        string cipherData;
-        byte[] chipherBytes;
-        byte[] plainBytes;
-        byte[] plainBytes2;
-        byte[] plainKey;
+        static string cipherData;
+        static byte[] chipherBytes;
+        static byte[] plainBytes;
+        static byte[] plainBytes2;
+        static byte[] plainKey;
 
-        SymmetricAlgorithm desObj;
+       static SymmetricAlgorithm desObj;
         
 
-        public string Encrypt(string s)
+        public static string Encrypt(string s)
         {
             desObj = Rijndael.Create();
 
@@ -38,9 +38,15 @@ namespace Anmelde_zu_Text
 
         }
 
-        public string Decrypt()
+        public static string Decrypt(byte[] d)
         {
-            
+           
+            chipherBytes = d;
+            plainKey = Encoding.ASCII.GetBytes("0123456789abcdef");
+            desObj.Key = plainKey;
+            desObj.Mode = CipherMode.CBC;
+            desObj.Padding = PaddingMode.PKCS7;
+
             MemoryStream ms1 = new MemoryStream(chipherBytes);
             CryptoStream cs1 = new CryptoStream(ms1, desObj.CreateDecryptor(), CryptoStreamMode.Write);
 
