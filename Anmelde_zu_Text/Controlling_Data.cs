@@ -18,6 +18,7 @@ namespace Anmelde_zu_Text
         public static List<string> keydateien = new List<string>();
         public static List<int> laufendeZahl = new List<int>();
         public static int maxKey;
+        public static List<string> passwort_reset = new List<string>();
 
         public static void ControllData()
         {
@@ -44,9 +45,10 @@ namespace Anmelde_zu_Text
                 //var input = datei[3];
                 //var output = input.Select(x => (byte)x).ToArray();
                 //byte[] array = Encoding.ASCII.GetBytes(input);
-               
+                string reset = datei[2] + "_" + datei[3];
                 string pass = datei[2] + "_" + CrypToFile.Decrypt(int.Parse(datei[3])); /*Cryptor.Decrypt(array)*/;
                 pass_Data.Add(pass);
+                passwort_reset.Add(reset);
             }
         }
 

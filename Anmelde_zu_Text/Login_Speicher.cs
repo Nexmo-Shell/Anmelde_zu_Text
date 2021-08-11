@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Linq;
 
+
 namespace Anmelde_zu_Text
 {
     public class Login_Speicher
@@ -17,7 +18,8 @@ namespace Anmelde_zu_Text
         string path = @"D:\Umschulung_Fachinformatiker\Praktikum\Textdata\";
 
         public void Write_Data()
-        {     
+        {
+
             int i = CrypToFile.Encrypt(Passwort);
             string[] write = { Vorname, Nachname, Benutzername, i.ToString() };
             string pathing = path + Vorname+"_"+Nachname + ".txt";

@@ -8,7 +8,7 @@
         Title="Login_erfolgreich" Height="150" Width="800">
     <Grid Background="Black" Height="150" Width="800">
         <Canvas>
-            <Label Content="Herzlichenn Glückwunsch, der Login war erfolgreich!!" Canvas.Top="45" Canvas.Left="45" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="24" Foreground="Red" Background="Black" />
+            <Label Content="Herzlichen Glückwunsch, der Login war erfolgreich!!" Canvas.Top="45" Canvas.Left="45" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black" FontSize="24" Foreground="Red" Background="Black" />
         </Canvas>
     </Grid>
 </Window>

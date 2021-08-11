@@ -1,0 +1,19 @@
+﻿<Window x:Class="Anmelde_zu_Text.PasswortReset"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Anmelde_zu_Text"
+        mc:Ignorable="d"
+        Title="PasswortReset" Height="250" Width="450">
+    <Grid>
+        <Canvas Background="AliceBlue">
+            <Label Name="Benutzerabfrage" Content="Bitte geben Sie Ihren Benutzername ein und bestätigen Sie diesen" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45"/>
+            <TextBox Name="Benutzername" Margin="20" Width="200" Height="25" Canvas.Left="85" Canvas.Top="65"/>
+            <Button Name="Bestätigen" Content="Bestätigen" Margin="20" Canvas.Left="132" Canvas.Top="104"  Background="DarkGray" Foreground="Black" FontFamily="Arial Black" FontSize="18" Click="Bestätigung"/>
+            <TextBox Name="PasswortNeu" Margin="20" Width="200" Height="25" Canvas.Left="85" Canvas.Top="65" Visibility="Hidden"/>
+            <Button Name="Ok" Content="OK" Margin="20" Canvas.Left="132" Canvas.Top="104" Background="DarkRed" Foreground="Black" FontFamily="Arial Black" FontSize ="18" Click="OK" Visibility="Hidden"/>
+            <Label Name="Passwortabfrage" Content="Bitte geben Sie Ihr neues Passwort ein und bestätigen Sie dies mit OK" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="45" Visibility="Hidden"/>
+        </Canvas>
+    </Grid>
+</Window>

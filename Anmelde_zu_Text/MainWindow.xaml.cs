@@ -111,11 +111,15 @@ namespace Anmelde_zu_Text
             this.Close();
         }
 
-        
-
         private void Registrieren_Click(object sender, RoutedEventArgs e)
         {
             Window win = new Registrierung();
+            win.Show();
+        }
+
+        private void NewPasswort(object sender, RoutedEventArgs e)
+        {
+            Window win = new PasswortReset();
             win.Show();
         }
     }

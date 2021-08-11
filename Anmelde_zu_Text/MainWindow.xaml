@@ -15,6 +15,8 @@
             <Button Content="Login" Canvas.Left="0" Canvas.Top="105" Margin="25" Foreground="DarkRed" Background="DarkGray" FontFamily="Arial Black" FontSize="14" Click="Login"/>
             <Button Content="Registrieren" Canvas.Left="0" Canvas.Top="130" Margin="25" FontFamily="Arial Black" FontSize="14" Click="Registrieren_Click"/>
             <Button Content="Beenden" Canvas.Left="295" Canvas.Top="130" Margin="25" FontFamily="Arial Black" FontSize="14" Background="DarkGray" Foreground="DarkRed" Click="Quit"/>
+            <Button Content="Password Vergessen" Canvas.Left="0" Canvas.Top="175" Margin="25" FontFamily="Arial Black" FontSize="8" Click="NewPasswort">
+            </Button>
         </Canvas>
     </Grid>
 </Window>
